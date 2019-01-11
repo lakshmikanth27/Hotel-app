@@ -1,0 +1,29 @@
+.card{
+  box-shadow: 5px 5px 5px #aaaaaa;
+  margin: 15px 5px;
+}
+address {
+  margin-bottom: 5px;
+}
+
+.price>label {
+  color: grey;
+  font-size: 12px;
+  margin-bottom: 0
+}
+
+h3 {
+  margin-bottom: 3px;
+}
+
+.badge {
+  margin-right: 3px;
+}
+
+
+.description {
+  color: grey;
+  font-size: 12px;
+  padding: 15px 15px 0 15px;
+  margin-bottom: 5px;
+}

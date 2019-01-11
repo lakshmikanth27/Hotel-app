@@ -1,0 +1,7 @@
+<div class="row">
+    <div class="col-md-12">
+      <i class="fa fa-search search-gif" (click)="searchClicked()"></i>
+      <input type="text" placeholder="search" class="search-box" [(ngModel)]="query" (keyup)="searchClicked($event)">
+      <i class="fa fa-times remove-gif" (click)="clearSearch()"></i>
+    </div>
+  </div>
