@@ -13,7 +13,7 @@ export interface Room {
 export interface Review {
   name: string;
   id: string;
-  review: string[];
+  review: string;
   rating: number;
 }
 
@@ -26,7 +26,7 @@ export class Hotel {
   public services: string[];
   public rooms: Room[];
   public reviews: Review[];
-  public location: Location[];
+  public location: Location;
 
   constructor(
     stars: number,
@@ -37,7 +37,7 @@ export class Hotel {
     services: string[],
     rooms: Room[],
     reviews: Review[],
-    location: Location[]
+    location: Location
   ) {
     this.stars = stars;
     this.name = name;

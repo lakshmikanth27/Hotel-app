@@ -1,22 +1,20 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from "@angular/core";
 
 @Component({
-  selector: 'app-hotel-tile',
-  templateUrl: './hotel-tile.component.html',
-  styleUrls: ['./hotel-tile.component.css']
+  selector: "app-hotel-tile",
+  templateUrl: "./hotel-tile.component.html",
+  styleUrls: ["./hotel-tile.component.css"]
 })
-export class HotelTileComponent implements OnInit {
+export class HotelTileComponent {
+  @Input() hotel;
 
-  @Input() hotel
+  constructor() {}
 
-  constructor() { }
-
-  generateStars(num){
+  generateStars(num) {
     const starArr = [];
-    for(let i=0; i<num; i++){
+    for (let i = 0; i < num; i++) {
       starArr.push(i);
     }
     return starArr;
   }
-
 }

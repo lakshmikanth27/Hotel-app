@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import { HotelsService } from '../../services/hotels.service'
-import { Hotel } from '../../models/hotels'
+import { HotelsService } from "../../services/hotels.service";
+import { Hotel } from "../../models/hotels";
 @Component({
   selector: "app-hotel-list",
   templateUrl: "./hotel-list.component.html"
@@ -16,10 +16,11 @@ export class HotelListComponent {
   }
 
   public handleSearch(searchTerm: string) {
-    this.hotels = this.rawHotelList.filter(u => u.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1);
+    this.hotels = this.rawHotelList.filter(
+      u => u.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
+    );
   }
 
-  ngOnInit() {}
   getHotelDetails(hotel) {
     this.router.navigate(["/HotelDisplay", hotel._id]);
   }
