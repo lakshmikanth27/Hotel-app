@@ -16,3 +16,10 @@
 2. Reactive Form
 3. Bootstrap
 4. TypeScript
+
+## Additional things which Couldn't be done
+
+1. Could not add the functionality of room photo as it required file-server setup and I do not have the available band-width
+to pick that up. To compensate that I have added service tagging to hotel which was less time consuming, and shows the beauty 
+of anguar reactive forms.
+
