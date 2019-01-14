@@ -2,7 +2,8 @@
   <div class="card-body">
     <div class="row">
       <div class="col-md-3">
-        <img class="img img-thumbnail" [src]="'assets/'+hotel.photos[2]" alt="">
+        <img class="img img-thumbnail" src="assets/{{hotel.photos[2] || '/photos/hotel/corinthiahotelbudapest/1.jpg'}}"
+          alt="">
       </div>
       <div class="col-md-5">
         <h3 class="card-title">{{hotel.name}}</h3>
@@ -10,15 +11,22 @@
           <app-star-rating [stars]="generateStars(hotel.stars)"></app-star-rating>
         </span>
         <address>{{hotel.location.address}}</address>
+        <div class="phone"><i class="fa fa-phone"></i> {{hotel.phone}}</div>
         <div class="price">
           <label>Starting from: </label>
           <h2>${{hotel.rooms[0].price}}</h2>
+        </div>
+        <div class="crud">
+          <i class="fa fa-edit" (click)="editClick()"></i>
+          <i class="fa fa-trash" (click)="deleteClick()"></i>
         </div>
       </div>
       <div class="col-md-4">
         <span class="badge badge-success" *ngFor="let service of hotel.services">{{service}}</span>
       </div>
-
+      <div class="row room-types">
+        <app-room-tile *ngFor="let room of hotel.rooms" [room]="room"></app-room-tile>
+      </div>
     </div>
     <div class="row">
       <p class="description">{{hotel.description}}</p>

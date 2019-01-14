@@ -2,6 +2,6 @@
   <div class="container">
       <app-search (searchClick)="handleSearch($event)"></app-search>
 
-      <app-hotel-tile *ngFor="let hotel of hotels" [hotel]="hotel" > </app-hotel-tile>
+      <app-hotel-tile *ngFor="let hotel of hotels" (hotelDelete)="handleDeleteHotel($event)" [hotel]="hotel" > </app-hotel-tile>
   </div>
 

@@ -1,7 +1,7 @@
-.card{
-  box-shadow: 5px 5px 5px #aaaaaa;
-  margin: 15px 5px;
-}
+  .card{
+    box-shadow: 5px 5px 5px #aaaaaa;
+    margin: 15px 5px;
+  }
 address {
   margin-bottom: 5px;
 }
@@ -26,4 +26,18 @@ h3 {
   font-size: 12px;
   padding: 15px 15px 0 15px;
   margin-bottom: 5px;
+}
+
+.room-types{
+  margin-left: 15px;
+}
+.crud{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.crud > i{
+  margin-left: 2px;
+  cursor: pointer;
 }

@@ -1,0 +1,8 @@
+<div class="card text-white bg-secondary mb-3">
+  <div class="card-header">{{room.type}}</div>
+  <div class="card-body">
+    <h5 class="card-title">Available: {{room.number}} | Price: ${{room.price}}</h5>
+    <h6>{{getTimeStamp(room.startDate) | date}} - {{getTimeStamp(room.lastDate) | date}}</h6>
+    <p class="card-text">{{room.description}}</p>
+  </div>
+</div>

@@ -1,0 +1,120 @@
+<form [formGroup]="hotelForm">
+  <div class="container">
+    <div class=" card card-default">
+      <div class="card-header">
+        <h4>Add New Hotel</h4>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <input class="form-control" [(ngModel)]="hotel_in_progress.name" type="text" placeholder="Hotel Name"
+            formControlName="name" />
+        </div>
+        <div class="form-group">
+          <input class="form-control" [(ngModel)]="hotel_in_progress.location.address" type="text" placeholder="Location"
+            formControlName="location" />
+        </div>
+        <div class="form-group">
+          <input class="form-control" [(ngModel)]="hotel_in_progress.phone" type="text" placeholder="Phone"
+            formControlName="phone" />
+        </div>
+        <div class="form-group">
+          <textarea rows="5" [(ngModel)]="hotel_in_progress.description" class="form-control" placeholder="Description"
+            formControlName="description"></textarea>
+        </div>
+        <div class="input-group">
+          <input type="number" class="form-control col-md-3" [(ngModel)]="hotel_in_progress.stars" placeholder="Star Rating (1-5)"
+            formControlName="stars" min="1" max="5" />
+          <div class="input-group-append">
+            <span class="input-group-text">Stars</span>
+          </div>
+        </div>
+
+        <hr />
+        <h3>Hotel Services </h3>
+        <div class="input-group">
+          <label formArrayName="services" *ngFor="let service of services; let i = index">
+            <div class="badge badge-warning service-checkbox">
+              <input type="checkbox" [formControlName]="i">
+              {{service}}
+            </div>
+
+          </label>
+        </div>
+
+        <hr />
+        <div class="form-group">
+          <h3> Rooms </h3>
+
+          <div class="form-row">
+
+            <div class="form-row room" *ngFor="let room of hotel_in_progress.rooms; let i = index">
+              <div class="row room-row">
+                <div class="col-3">
+                  <select class='form-control' [(ngModel)]="hotel_in_progress.rooms[i].type" formControlName="type_{{i}}"
+                    placeholder="Select Room Type">
+                    <option [disabled]="true">Select Room Type</option>
+                    <option *ngFor="let t of room_type; let y = index" [value]="t">{{t}}</option>
+                  </select>
+                </div>
+
+
+                <div class="col-3 input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Price</span>
+                  </div>
+                  <input type="text" formControlName="price_{{i}}" class="form-control" [(ngModel)]="hotel_in_progress.rooms[i].price" />
+                  <div class="input-group-append">
+                    <span class="input-group-text">$</span>
+                  </div>
+                </div>
+
+                <div class="col-3 input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Start Date#</span>
+                  </div>
+                  <input type="text" formControlName="startDate_{{i}}" class="form-control" placeholder="mm-dd-yyyy"
+                    [(ngModel)]="hotel_in_progress.rooms[i].startDate" />
+                </div>
+                <div class="col-3 input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">End Date#</span>
+                  </div>
+                  <input type="text" formControlName="lastDate_{{i}}" class="form-control" placeholder="mm-dd-yyyy"
+                    [(ngModel)]="hotel_in_progress.rooms[i].lastDate" />
+                </div>
+              </div>
+              <div class="row room-row">
+                <div class="col-md-3 input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Room#</span>
+                  </div>
+                  <input type="number" formControlName="number_{{i}}" class="form-control" [(ngModel)]="hotel_in_progress.rooms[i].number" />
+                </div>
+                <div class="col-md-3 input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Guest#</span>
+                  </div>
+                  <input type="number" formControlName="guest_{{i}}" class="form-control" [(ngModel)]="hotel_in_progress.rooms[i].guest" />
+                </div>
+                <div class="col-md-6">
+                  <input type="text" class="form-control" formControlName="description_{{i}}" [(ngModel)]="hotel_in_progress.rooms[i].description"
+                    placeholder="Room Description" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row add-room">
+            <div class="col-md-2">
+              <input type="button" class="btn btn-secondary" value='Add' (click)="addRoomPressed()" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="card-footer">
+        <input [disabled]="hotelForm.invalid" type="submit" class="btn btn-primary" value="{{this.editFlow ? 'Add Hotel': 'Update Hotel'}}"
+          (click)="addHotelClicked()" />
+      </div>
+    </div>
+  </div>
+</form>
